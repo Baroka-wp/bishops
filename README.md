@@ -1,24 +1,33 @@
 # README
+* ## version
+ruby 2.6.5
+rails 6.0.3
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# bishop (english version)
+* ## Overview
 
-Things you may want to cover:
+bishop is a directory of startups and self-entrepreneurs in Benin. The application allows the self-entrepreneur to have a page to present their startup. In this way it is possible to reference the startups that exist, to be able to contact them, and they can interact with each other.
 
-* Ruby version
+* ## list of functions
 
-* System dependencies
+ - [ ] login function
+ - [ ] function to register a new user
+    - [ ] requires email and a password
+     - [ ] connexion with google or facebook (oauth fonction)
+ - [ ] list users (self contractors) 
+    - [ ] summary of their information (name, contact, address, logo)
+    - [ ] link to visit the complete information page 
+- [ ] function to edit information pages
+- [ ] function to delete information pages
+- [ ] function to following another user (partner)
+- [ ] message function between partners
+- [ ] Profile rating system
+- [ ] Video loading (for startup présentation)
+* ## Catalog design,Table_Definition,Screen transition diagram,,Wire frame
 
-* Configuration
+https://docs.google.com/spreadsheets/d/1U9MVG2Ne2icgs9-ATP0gTDe1dtUEVoskCr08xy1ChjE/edit?usp=sharing
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* ## Gem to use
+* carrierwave
+* mini_magick
+* devise
