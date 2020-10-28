@@ -66,6 +66,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   #host = 'localhost:3000'
   host = 'https://samurai-bishop.herokuapp.com/'
+  
 
   # SMTP settings for gmail
   #config.action_mailer.smtp_settings = {
