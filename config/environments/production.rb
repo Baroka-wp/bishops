@@ -115,12 +115,12 @@ Rails.application.configure do
   #host = 'localhost:3000'
   host = 'https://samurai-bishop.herokuapp.com/'
   # SMTP settings for gmail
-  config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
-    port: 587,
-    user_name: ENV['GOOGLE_USERNAME'],
-    password: ENV['GOOGLE_PASSWORD'],
-    authentication: 'plain',
-    enable_starttls_auto: true
-  }
+  #config.action_mailer.smtp_settings = {
+  #  address: 'smtp.gmail.com',
+  #  port: 587,
+  #  user_name: ENV['GOOGLE_USERNAME'],
+  #  password: ENV['GOOGLE_PASSWORD'],
+  #  authentication: 'plain',
+  #  enable_starttls_auto: true
+  #}
 end
