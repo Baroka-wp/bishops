@@ -30,18 +30,5 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   #host = 'localhost:3000' # replace with your own url
-  config.action_mailer.default_url_options = { host: 'localhost:3000', protocol: 'http' }
 
-  host = 'https://samurai-bishop.herokuapp.com/' # replace with your own url
-  #config.action_mailer.default_url_options = { host: 'https://samurai-bishop.herokuapp.com/', protocol: 'http' }
-
-  # SMTP settings for gmail
-  config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
-    port: 587,
-    user_name: 'birotori@gmail.com',
-    password: 'laaysvaccbzxhesc',
-    authentication: 'plain',
-    enable_starttls_auto: true
-  }
 end
