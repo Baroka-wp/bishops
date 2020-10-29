@@ -1,0 +1,42 @@
+current directory: /home/baroka/Bishop/vendor/bundle/ruby/2.6.0/gems/pg-1.2.3/ext
+/usr/local/rbenv/versions/2.6.5/bin/ruby -I /usr/local/rbenv/versions/2.6.5/lib/ruby/2.6.0 -r ./siteconf20201029-29274-5ax28x.rb extconf.rb --with-pg-config\=/Applications/Postgres.app/Contents/Versions/10.12/bin/pg_config
+Using config values from /Applications/Postgres.app/Contents/Versions/10.12/bin/pg_config
+extconf.rb:33: warning: Insecure world writable dir /usr/local/rbenv in PATH, mode 040777
+sh: 1: /Applications/Postgres.app/Contents/Versions/10.12/bin/pg_config: not found
+sh: 1: /Applications/Postgres.app/Contents/Versions/10.12/bin/pg_config: not found
+checking for libpq-fe.h... no
+Can't find the 'libpq-fe.h header
+*** extconf.rb failed ***
+Could not create Makefile due to some reason, probably lack of necessary
+libraries and/or headers.  Check the mkmf.log file for more details.  You may
+need configuration options.
+
+Provided configuration options:
+	--with-opt-dir
+	--without-opt-dir
+	--with-opt-include
+	--without-opt-include=${opt-dir}/include
+	--with-opt-lib
+	--without-opt-lib=${opt-dir}/lib
+	--with-make-prog
+	--without-make-prog
+	--srcdir=.
+	--curdir
+	--ruby=/usr/local/rbenv/versions/2.6.5/bin/$(RUBY_BASE_NAME)
+	--with-pg
+	--without-pg
+	--enable-windows-cross
+	--disable-windows-cross
+	--with-pg-config
+	--with-pg-dir
+	--without-pg-dir
+	--with-pg-include
+	--without-pg-include=${pg-dir}/include
+	--with-pg-lib
+	--without-pg-lib=${pg-dir}/lib
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /home/baroka/Bishop/vendor/bundle/ruby/2.6.0/extensions/x86_64-linux/2.6.0/pg-1.2.3/mkmf.log
+
+extconf failed, exit code 1

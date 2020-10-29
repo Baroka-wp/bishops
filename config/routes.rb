@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :hackers
   root 'startups#terme'
   resources :startups
   devise_for :users
