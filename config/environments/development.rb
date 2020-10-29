@@ -3,7 +3,7 @@ Rails.application.configure do
   config.force_ssl = false
   config.eager_load = false
 
-  config.consider_all_requests_local = false
+  config.consider_all_requests_local = true
   if Rails.root.join('tmp', 'caching-dev.txt').exist?
     config.action_controller.perform_caching = true
     config.action_controller.enable_fragment_cache_logging = true
@@ -29,6 +29,5 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.action_mailer.delivery_method = :smtp
-  #host = 'localhost:3000' # replace with your own url
 
 end

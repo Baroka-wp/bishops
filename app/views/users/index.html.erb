@@ -1,0 +1,14 @@
+
+<img src="/banner.gif" class="img-fluid" alt="bishop banner">
+<hr>
+<% @users.each do |user| %>
+<div class="row">
+  <div class="col-lg-5">
+    <div class="container">
+      <%= image_tag (user.avatar_thumbnail), style: 'height:30px;width:30px;'%>
+      <%= link_to "#{user.name}", user %>
+     <p><%= user.email %></p>
+    </div>
+  </div>
+<hr>
+<% end %>

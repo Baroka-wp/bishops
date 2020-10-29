@@ -1,0 +1,27 @@
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card mb-12 shadow-sm">
+          <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-12 justify-content-sd-center ">
+              <div class="container">
+                <%= image_tag (@user.avatar_thumbnail), style: 'height:150px;width:150px;'%>
+                <hr>
+                <strong>Name </strong>:<%= @user.name %>
+                <hr>
+                <strong>Email </strong><%= @user.email %>
+                <hr>
+                <% if user_signed_in? %>
+                  <% if current_user.id == @user.id  %>
+                      <%= link_to 'user parmetter', edit_user_registration_path(:id),class:"btn btn-sm btn-warning" %>
+                  <% end %>
+               <% end %>
+              <br>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

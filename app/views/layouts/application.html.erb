@@ -4,7 +4,7 @@
     <title>Bishop</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -18,6 +18,40 @@
         <%= content_tag(:div,value,class:"alert alert-#{key}")%>
       <% end%>
     </div>
+    <div >
+      <% if user_signed_in? %>
+        <header class="menu" id="menu">
+        <div class="navbar navbar-light bg-light shadow-sm " >
+          <div class="container d-flex justify-content-between">
+            <%= image_tag (current_user.avatar_thumbnail), style: 'height:50px;width:50px;border-radius:100px;'%>
+            <strong class= "navbar-brand d-flex align-items-left"><%= current_user.name %></strong>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+        </div>
+        <div class="collapse bg-light " id="navbarHeader">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-7 offset-md-1 py-4">
+                <ul class="list-unstyled">
+                <li><%= link_to "Home", root_path,class:"text-dark" %></li>
+                <li><%= link_to "My profile", user_path(current_user.id),class:"text-dark" %></li>
+                <br>
+                <li><%= link_to "logout", destroy_user_session_path, method: :delete,class:"btn btn-sm btn-danger" %></li>
+              </ul>
+            </div>
+            <div class="col-sm-5 col-md-4 py-4">
+                <div class="btn-group">
+                  <%= link_to 'Expand your network', users_path,class:"btn btn-sm btn-info" %>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </header>
+    </div>
+  <% end %>
     <%= yield %>
   </body>
 </html>

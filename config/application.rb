@@ -17,6 +17,7 @@ module Bishop
     # the framework and any gems in your application.
 
     #config.action_mailer.default_url_options = { host: 'localhost:3000', protocol: 'http' }
+    #host = 'localhost:3000' # replace with your own url
 
     host = 'https://samurai-bishop.herokuapp.com/' # replace with your own url
     config.action_mailer.default_url_options = { host: 'https://samurai-bishop.herokuapp.com/', protocol: 'http' }
