@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2020_10_29_162118) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "avatar", default: "", null: false
     t.string "name", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false

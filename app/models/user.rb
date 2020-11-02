@@ -3,13 +3,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
-
-    has_one_attached :avatar
-
+   mount_uploader :avatar, AvatarUploader
 
   def avatar_thumbnail
-    if avatar.attached?
-      avatar.variant(resize: '150x150!').processed
+    unless avatar.nil?
+      avatar.url
     else
       '/default-avatar.png'
     end
