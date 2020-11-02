@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+
+    <div class=" col-lg-2 col-md-3">
+    <%if user_signed_in? %>
+      <table class="table table-hover">
+        <tbody>
+          <tr>
+            <% current_user.startups.each do |startups| %>
+            <td>
+              <%=link_to "My startup", startups, class:"text-dark"  %>
+            </td>
+              <% end %>
+          </tr>
+          <tr>
+            <td> Messages room</td>
+         </tr>
+         <tr>
+           <td> My network</td>
+        </tr>
+         <tr>
+           <td><%= link_to 'Expand my network', users_path,class:"text-dark" %></td>
+        </tr>
+      </tbody>
+    </table>
+  <% end %>
+  </div>
+  <div class="col-lg-9 col-md-7">
+      <% @startups.each do |startup| %>
+            <div class="row">
+                <%= image_tag startup.banner_thumbnail, class:"img-fluid", style:'width="250px";'%>
+                <table class="table table-bordered">
+                  <tbody>
+                    <tr>
+                      <td colspan="4"><%= startup.resume %></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Adesse</strong> : <%= startup.adresse %> </td>
+                      <td><strong>Contact</strong> : <%= startup.contact %> </td>
+                      <td><strong><%= startup.sector_of_business %></strong> startup  </td>
+                      <td> <%= link_to 'show stratup', startup,class:"btn btn-sm btn-info" %></td>
+                    </tr>
+                </tbody>
+              </table>
+            </div>
+      <% end %>
+    </div>
+  </div>
+</div>

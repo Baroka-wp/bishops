@@ -17,11 +17,17 @@
                   <% end %>
                <% end %>
               <br>
+            </div>
+                <div class="container-fluid">
+                      <% if user_signed_in? %>
+                        <% if current_user.id == @user.id  %>
+                          <%= link_to 'add startup', new_startup_path,class:"btn btn-sm btn-info" %>
+                        <% end %>
+                      <% end %>
+                  </div>
+                </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
-    </div>
-  </div>

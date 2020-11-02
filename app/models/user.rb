@@ -6,9 +6,12 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: %i(google)
    mount_uploader :avatar, AvatarUploader
 
+
+  has_many :startups
+
   def avatar_thumbnail
-    unless avatar.blank?
-      avatar
+    if avatar.present?
+      avatar.url
     else
       '/default-avatar.png'
     end

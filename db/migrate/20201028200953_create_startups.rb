@@ -6,10 +6,10 @@ class CreateStartups < ActiveRecord::Migration[6.0]
       t.string :contact
       t.string :trade_registre
       t.text :adresse
-      t.text :sector_of_business
+      t.integer :sector_of_business
       t.text :banner
       t.text :video
-
+      t.text :resume
       t.timestamps
     end
   end

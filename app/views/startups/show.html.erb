@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2 col-md-3">
+      <table class="table table-hover">
+        <tbody>
+          <tr>
+            <td><%= image_tag @startup.logo_thumbnail,style: 'width:100%;'%></td>
+          </tr>
+          <tr>
+            <td>name: <strong><%= @startup.name %></td>
+           </tr>
+           <tr>
+             <td><strong><%= @startup.sector_of_business %></strong> statup</td>
+          </tr>
+          <tr>
+            <td> contact : <strong><%= @startup.contact %></td>
+           </tr>
+            <tr>
+              <td><i class="fas fa-map-marker-alt"></i><%= @startup.adresse %></td>
+           </tr>
+           <tr>
+             <td><strong> Like.count </td>
+            </tr>
+           <tr>
+             <td> Addresse : <strong><%= @startup.adresse %> </strong></td>
+          </tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="offset-1 col-lg-9 col-md-7">
+      <p><image controls width="100%" height="auto" src="<%= @startup.banner_thumbnail %>"></image></p>
+        <hr>
+        <p><%= @startup.resume %></p>
+        <hr>
+        <div class="embed-responsive embed-responsive-16by9">">
+          <%= get_video_iframe( @startup.video) %>
+        </div>
+        <hr>
+        <% if user_signed_in? && current_user.id == @startup.user_id %>
+            <%= link_to 'edit Statut', edit_startup_path(@startup.id),class:"btn btn-sm btn-info" %>
+            <%= link_to 'Delete Startup', startup_path(@startup.id), method: :delete, data: { confirm: 'Are you sure?'},class:"btn btn-sm btn-danger" %>
+        <% else %>
+          <%= link_to "Owener profile", user_path(@startup.user.id), class:"btn btn-sm btn-info" %>
+
+        <% end %>
+        </div>
+      </div>
+  </div>
