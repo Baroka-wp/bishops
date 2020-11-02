@@ -19,19 +19,67 @@
       <% end%>
     </div>
     <div >
-    <header class="menu" id="menu">
-      <div class="navbar navbar-light bg-light shadow-sm " >
-          <% if user_signed_in? %>
+      <% if user_signed_in? %>
+        <header class="menu" id="menu">
+        <div class="navbar navbar-light bg-light shadow-sm " >
+          <div class="container d-flex justify-content-between">
             <%= image_tag (current_user.avatar_thumbnail), style: 'height:50px;width:50px;border-radius:100px;'%>
-            <%= link_to "logout", destroy_user_session_path, method: :delete,class:"btn btn-sm btn-danger" %>
-          <% else %>
-            <%= link_to "sign up", new_user_registration_path,class:"btn  btn-info my-2" %>
-            <%= link_to "login", new_user_session_path,class:"btn btn-light my-2" %>
-         <% end %>
-       </div>
-     </div>
+            <strong class= "navbar-brand d-flex align-items-left"><%= current_user.name %></strong>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+        </div>
+        <div class="collapse bg-light " id="navbarHeader">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-7 offset-md-1 py-4">
+                <ul class="list-unstyled">
+                <li><%= link_to "Home", root_path,class:"text-dark" %></li>
+                <li><%= link_to "My profile", user_path(current_user.id),class:"text-dark" %></li>
+                <br>
+                <li><%= link_to "logout", destroy_user_session_path, method: :delete,class:"btn btn-sm btn-danger" %></li>
+              </ul>
+            </div>
+            <div class="col-sm-5 col-md-4 py-4">
+                <div class="btn-group">
+                  <%= link_to 'Expand your network', users_path,class:"btn btn-sm btn-info" %>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </header>
+    </div>
+      <% else %>
+      <div class="">
+        <main role="main">
+          <section class="jumbotron text-center">
+            <div class="container">
+              <h1>WELLCOME CHAMPION</h1>
+              <p class="lead text-muted">
+                "What makes a startup successful is not having a great idea,
+                or millions of dollars.<br> The success of a startup depends
+                on its human network."<br>
+              </p>
+              <p>
+                <%= link_to "HOME", root_path,class:"text-dark" %>
+
+                <%= link_to "sign up", new_user_registration_path,class:"btn  btn-info my-2" %>
+                <%= link_to "login", new_user_session_path,class:"btn btn-light my-2" %>
+              </p>
+              <small>
+                <%= link_to 'LEARN ABOUT BISHOP LICENCES', termes_path %>
+              </small>
+            </div>
+          </section>
+       <% end %>
+      </div>
     <%= yield %>
-
-
+    <footer class="class="main-footer"">
+        <div class="container float-right d-none d-sm-inline">
+          <p><strong>Licence</strong> : <a href="https://africasamurai.com/">AFRICA SAMURAI CONSULTING</a></p>
+      </div>
+    </footer>
   </body>
 </html>
