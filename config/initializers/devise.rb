@@ -14,7 +14,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '9ff5638a04ff3f733532196fe181394a65b0cfcb24644af991a3aceb1ab6984c0498c6a727872155b45b528dab82e8ca5cfea9881fc679c7398805312addb619'
+  config.secret_key = '9ff5638a04ff3f733532196fe181394a65b0cfcb24644af991a3aceb1ab6984c0498c6a727872155b45b528dab82e8ca5cfea9881fc679c7398805312addb619'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -25,7 +25,7 @@ Devise.setup do |config|
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   config.mailer_sender = 'bishop@from.io'
-
+  config.omniauth :google_oauth2, ENV['GOOGLE_APP_ID'], ENV['GOOGLE_APP_SECRET'], name: :google
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 
