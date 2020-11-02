@@ -7,7 +7,7 @@ require('jquery')
 $(document).ready(function() {
 
 	///////////////// fixed menu on scroll for desctop
-    if ($(window).width() > 780) {
+    if ($(window).width() > 680) {
 
         var navbar_height =  $('.menu').outerHeight();
 
