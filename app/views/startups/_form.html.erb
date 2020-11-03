@@ -16,49 +16,66 @@
 <div class="field">
 
 <%= form_with(model:@startup,local: true) do |form| %>
-      startup name<br>
-      <%= form.text_field :name %><br>
-      contact <br>
-      <%= form.text_field :contact %>
-      <br>
-      trade_registre <br>
-      <%= form.text_field :trade_registre %>
-      <br>
-      adresse <br>
-      <%= form.text_field :adresse %>
-      <br>
-      sector_of_business <br>
-      <%= form.select(:sector_of_business, {agriculture: 'agriculture', it: 'it', education: 'education', transport: 'transport', tourism: 'tourism', public_service: 'public_service', trade: 'trade'}) %>
-      <br>
+      <div class="row">
+        <div class="col-md-3">
+          startup name<br>
+          <%= form.text_field :name %><br>
+        </div>
+        <div class="col-md-3">
+          contact <br>
+          <%= form.text_field :contact %>
+        </div>
+        <div class="col-md-3">
+          trade_registre <br>
+          <%= form.text_field :trade_registre %><br>
+        </div>
+        <div class="col-md-3">
+          adresse <br>
+          <%= form.text_field :adresse %> <br>
+        </div>
+      </div>
+      <hr>
       resume<br>
       <small>Make a description of your startup in minimum 150 characters:
          remember to talk about the impact of your solution.</small>
       <%= form.text_area :resume, class:"form-control" %>
       <br>
-      your logo <br>
-      <small>for your logo to be displayed well, choose an image in png or
-        jpg format with a size of 330px *80 px.
-        your logo is representing you. Take care of it !</small><br>
-      <%= form.file_field :logo,class:"btn btn-sm btn-warning" %>
-      <br>
-
-      barnner <br>
-      <small>for your banner to be displayed well, choose an image in png or
-        jpg format with a size of 1200px *500 px.
-        your banner is can détail your activity. Take care of it !</small> <br>
-      <%= form.file_field :banner,class:"btn btn-sm btn-warning" %>
-      <%= form.hidden_field :banner_cache %>
-      <br>
-      description video <br>
-      <small>It is always more impactful to present your
-        company by staging it in a video.
-      you can add your video in youtub and past link here</small> <br>
-      <%= form.text_field :video %>
-      <br>
-      <br>
+      sector_of_business <br>
+      <%= form.select(:sector_of_business, {agriculture: 'agriculture', it: 'it', education: 'education', transport: 'transport', tourism: 'tourism', public_service: 'public_service', trade: 'trade'}) %> <br>
+      <hr>
+      <div class="row">
+        <div class="col-md-4">
+          your logo <br>
+          <small>for your logo to be displayed well, choose an image in png or
+            jpg format with a size of 330px *80 px.
+            your logo is representing you. Take care of it !</small><br>
+          <%= form.file_field :logo,class:"btn btn-sm btn-info" %>
+          <br>
+        </div>
+        <div class="col-md-4">
+          barnner <br>
+          <small>for your banner to be displayed well, choose an image in png or
+            jpg format with a size of 1200px *500 px.
+            your banner is can détail your activity. Take care of it !</small> <br>
+          <%= form.file_field :banner,class:"btn btn-sm btn-info" %>
+          <%= form.hidden_field :banner_cache %>
+          <br>
+        </div>
+        <div class="col-md-4">
+          description video <br>
+          <small>It is always more impactful to present your
+            company by staging it in a video.
+          you can add your video in youtub and past link here</small> <br>
+          <%= form.text_field :video %>
+          <br>
+        </div>
+      </div>
+    <br>
       <div class="actions">
         <%= form.submit "create startup" ,class:"btn btn-sm btn-info" %>
       </div>
   <% end %>
+  <br>
+  <%= link_to "Back", :back %>
 </div>
 <br>

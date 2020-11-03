@@ -1,33 +1,73 @@
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
-          <div class="card mb-12 shadow-sm">
-          <div class="row">
-            <div class="col-lg-3 col-md-4 col-sm-12 justify-content-sd-center ">
-              <div class="container">
-                <%= image_tag (@user.avatar_thumbnail), style: 'height:150px;width:150px;'%>
-                <hr>
-                <strong>Name </strong>:<%= @user.name %>
-                <hr>
-                <strong>Email </strong><%= @user.email %>
-                <hr>
-                <% if user_signed_in? %>
-                  <% if current_user.id == @user.id  %>
-                      <%= link_to 'user parmetter', edit_user_registration_path(:id),class:"btn btn-sm btn-warning" %>
-                  <% end %>
+        <div class="col-sm-4 col-md-3 col-lg-2">
+          <%= image_tag (@user.avatar_thumbnail), style: 'height:150px;width:150px;'%>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <td><strong>Name </strong>:<%= @user.name %></td>
+              </tr>
+              <tr>
+                <td><strong>Email </strong><%= @user.email %></td>
+              </tr>
+            </tbody>
+          </table>
+
+            <% if user_signed_in? %>
+              <% if current_user.id == @user.id  %>
+                <span><%= link_to 'user parmetter', edit_user_registration_path(:id),class:"btn btn-sm btn-warning" %></span>
+                <span><%= link_to 'add startup', new_startup_path,class:"btn btn-sm btn-info" %></span>
                <% end %>
-              <br>
-            </div>
-                <div class="container-fluid">
-                      <% if user_signed_in? %>
-                        <% if current_user.id == @user.id  %>
-                          <%= link_to 'add startup', new_startup_path,class:"btn btn-sm btn-info" %>
-                        <% end %>
-                      <% end %>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+             <% end %>
+         </div>
+         <div class="col-sm-4 col-lg-6">
+           <% @user.startups.each do |startup| %>
+                 <div class="row">
+                     <%= image_tag startup.logo_thumbnail, class:"img-fluid", style:'width="100%";'%>
+                     <table class="table table-bordered">
+                       <tbody>
+                         <tr>
+                           <td colspan="5"><%= startup.resume %></td>
+                         </tr>
+                         <tr>
+                           <td><strong>Adesse</strong> : <%= startup.name %> </td>
+                           <td><strong>Contact</strong> : <%= startup.contact %> </td>
+                           <td><strong>favorite.count</strong> </td>
+                           <td><strong><%= startup.sector_of_business %></strong> startup  </td>
+                           <td> <%= link_to 'show stratup', startup,class:"btn btn-sm btn-info" %></td>
+                         </tr>
+                     </tbody>
+                   </table>
+                 </div>
+           <% end %>
+         </div>
+        </div>
+        <br>
+        <div class="row">
+          <h4><%= @user.name %> network ( following.count) </h4>
+          <table class="table table-hover">
+            <tbody>
+              <tr>
+                <td>User name</td>
+                <td>user startup</td>
+                <td>send message</td>
+                <td>following.cout</td>
+              </tr>
+              <tr>
+                <td>User name</td>
+                <td>user startup</td>
+                <td>send message</td>
+                <td>following.cout</td>
+              </tr>
+              <tr>
+                <td>User name</td>
+                <td>user startup</td>
+                <td>send message</td>
+                <td>following.cout</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>

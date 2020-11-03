@@ -17,7 +17,7 @@ RSpec.describe 'User registration, login and logout functions', type: :system do
         fill_in 'user[email]', with: 'user2@gmail.com'
         fill_in 'user[password]', with: '000000'
         fill_in 'user[password_confirmation]', with: '000000'
-        click_button 'Create User'
+        click_button 'Sign up'
         expect(page).to have_content 'A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.'
       end
     end
@@ -26,8 +26,8 @@ RSpec.describe 'User registration, login and logout functions', type: :system do
     context 'If the user has no data and is not logged in' do
       it 'Testing Session Logins' do
         visit new_user_session_path
-        fill_in 'session[email]', with: @user.email
-        fill_in 'session[password]', with: @user.password
+        fill_in 'user[email]', with: @user.email
+        fill_in 'user[password]', with: @user.password
         click_button 'Log in'
         expect(page).to have_content 'Signed in successfully.'
       end
@@ -35,11 +35,11 @@ RSpec.describe 'User registration, login and logout functions', type: :system do
     context 'If the user is logged in' do
       it 'Testing Session Logouts' do
         visit new_user_session_path
-        fill_in 'session[email]', with: @user.email
-        fill_in 'session[password]', with: @user.password
+        fill_in 'user[email]', with: @user.email
+        fill_in 'user[password]', with: @user.password
         click_button 'Log in'
         #click_link 'logout'
-        click_on_button 'logout'
+        click_button 'logout'
 
         expect(current_path).to eq root_path
         expect(page).to have_content 'Bye! Your account has been successfully cancelled. We hope to see you again soon.'

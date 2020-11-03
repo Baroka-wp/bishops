@@ -5,7 +5,9 @@ class Startup < ApplicationRecord
   validates :name, presence:true, null:false
   validates :resume, presence:true, null:false, length:{minimum: 150}
   validates :contact, presence:true, null:false
-  validates :logo, presence:true, null:false
+  validates :adresse, presence:true, null:false
+  validates :sector_of_business, presence:true, null:false
+
   enum sector_of_business: %i[agriculture it education transport tourism public_service trade]
 
   belongs_to :user

@@ -1,0 +1,26 @@
+<section class=" text-center">
+
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <td>
+            <h1>Hey Champion</h1>
+            <p class=" text-muted">
+              "What makes a startup successful is not having a great idea,
+              or millions of dollars.<br> The success of a startup depends
+              on its human network."<br>
+            </p>
+            <p>
+            <% unless user_signed_in? %>
+              <%= link_to "sign up", new_user_registration_path,class:"btn btn-sm btn-ligth" %>
+              <%= link_to "login", new_user_session_path,class:"btn btn-sm btn-info" %>
+            <% end %>
+            </p>
+            <small>
+              <%= link_to 'LEARN ABOUT BISHOP LICENCES', termes_path %>
+            </small>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</section>
