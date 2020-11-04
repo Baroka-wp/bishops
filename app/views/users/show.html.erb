@@ -14,7 +14,6 @@
               </tr>
             </tbody>
           </table>
-
             <% if user_signed_in? %>
               <% if current_user.id == @user.id  %>
                 <span><%= link_to 'user parmetter', edit_user_registration_path(:id),class:"btn btn-sm btn-warning" %></span>

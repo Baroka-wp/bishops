@@ -20,8 +20,6 @@ class StartupsController < ApplicationController
  end
 
  def create
-   # @startup = Startup.new(startup_params)
-   # @startup.user_id = current_user.id
    @startup = current_user.startups.build(startup_params)
    if @startup.save
      StartupMailer.startup_mail(@startup).deliver
@@ -33,6 +31,7 @@ class StartupsController < ApplicationController
 end
 
  def show
+   @favorite = @startup.favorites.find_by(startup_id: @startup.id)
  end
 
  def edit; end

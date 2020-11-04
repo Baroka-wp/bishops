@@ -7,7 +7,9 @@ class Startup < ApplicationRecord
   validates :contact, presence:true, null:false
   validates :adresse, presence:true, null:false
   validates :sector_of_business, presence:true, null:false
-
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_users, through: :favorites, source: :user
+  
   enum sector_of_business: %i[agriculture it education transport tourism public_service trade]
 
   belongs_to :user

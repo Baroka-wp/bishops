@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-2 col-md-3">
-      <table class="table table-hover">
+      <table class="table table-bordered table-hover">
         <tbody>
           <tr>
             <td><%= image_tag @startup.logo_thumbnail,style: 'width:100%;'%></td>
@@ -19,11 +19,14 @@
               <td><i class="fas fa-map-marker-alt"></i><%= @startup.adresse %></td>
            </tr>
            <tr>
-             <td><strong> Like.count </td>
-            </tr>
-           <tr>
              <td> Addresse : <strong><%= @startup.adresse %> </strong></td>
           </tr>
+          <tr>
+            <td>
+              <%= render 'favorites'%>
+              <strong><%=@startup.favorites.count %></strong> <img src="/etoile.png" alt="contributeur (s)" width="25" height="25">
+            </td>
+           </tr>
       </tbody>
     </table>
     </div>

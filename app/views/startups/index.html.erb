@@ -42,7 +42,9 @@
                       <td><strong>Contact</strong> : <%= startup.contact %> </td>
                       <td><strong>adress</strong> : <%= startup.adresse %> </td>
                       <td><strong><%= startup.sector_of_business %></strong> startup  </td>
-                      <td><strong>favorit.count</strong></td>
+                      <td>
+                      <strong><%=startup.favorites.count %></strong> <img src="/etoile.png" alt="contributeur (s)" width="25" height="25">
+                      </td>
                       <td> <%= link_to 'show stratup', startup,class:"btn btn-sm btn-info" %></td>
                     </tr>
                 </tbody>
