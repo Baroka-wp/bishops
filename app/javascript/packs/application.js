@@ -7,6 +7,9 @@ require('jquery')
 
 $(document).ready(function() {
 
+      setTimeout(function() {
+      $('.flash').fadeOut('fast');
+    }, 2000);
 	///////////////// fixed menu on scroll for desctop
     if ($(window).width() > 780) {
 
@@ -23,8 +26,6 @@ $(document).ready(function() {
             }
         });
     } // end if
-    setTimeout(function() {
-    $('.flash').fadeOut('fast');
-}, 3000);
+
 
 });

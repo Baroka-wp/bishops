@@ -5,9 +5,12 @@ class StartupsController < ApplicationController
  before_action :user_check, only: %i[edit destroy]
  before_action :startup_check, only: %i[new create]
 
+
+
  def index
-   #@startups = Startup.all
-   @startups = Startup.where(["name LIKE ?", "%#{params[:name]}%"])
+
+   @startups = Startup.where(["name LIKE ?", "%#{params[:name]}%"]) if params[:name]
+   @startups = Startup.all.order(name: :ASC)
    @user = User.all
  end
 

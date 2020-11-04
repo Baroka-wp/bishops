@@ -3,12 +3,13 @@
     <div class="col-md-12 col-lg-12">
       <%= render 'users/wellcome' %>
     </div>
-    <div class="  ioffset-4 form-inline col-md-6 col-lg-6 ">
+    <div class="form-inline col-lg-6 ">
       <%= form_with(url: startups_path, method: :get, local: true) do |f|%>
         <%= f.text_field :name , class:"form-control mr-sm-2", placeholder: "search startup by it name"%>
         <%= f.submit'search', class:"btn btn-outline-info my-2 my-sm-0"%><br>
+        <span> <%= link_to "Clear search",root_path %></span>
+
       <% end %>
-      <%= link_to "Clear search",root_path %>
     </div>
   </div>
   <br>
