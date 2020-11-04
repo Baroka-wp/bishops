@@ -6,7 +6,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: %i(google)
    mount_uploader :avatar, AvatarUploader
 
-
+   validates :name , presence: true , uniqueness: true
   has_many :startups
 
   def avatar_thumbnail

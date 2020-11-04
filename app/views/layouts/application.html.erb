@@ -14,11 +14,6 @@
   </head>
 
   <body>
-    <div class="flash">
-      <% flash.each do |key, value|%>
-        <%= content_tag(:div,value,class:"alert alert-#{key}")%>
-      <% end%>
-    </div>
   <%if user_signed_in? %>
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,14 +28,9 @@
           <li class="nav-item">
             <%= link_to "Home",root_path ,class:"nav-link" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "logout", destroy_user_session_path, method: :delete,class:"nav-link btn btn-sm btn-danger" %>
-          </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search by startup name" aria-label="Search">
-          <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        <%= link_to "logout", destroy_user_session_path, method: :delete,class:" btn btn-outline-danger my-2 my-sm-0" %>
+
       </div>
   </nav>
   <% else %>
@@ -58,13 +48,14 @@
           <%= link_to "Bishop's network",users_path ,class:"nav-link" %>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search by startup name" aria-label="Search">
-        <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
-      </form>
     </div>
   </nav>
   <% end %>
   <%= yield %>
+  <span class="flash">
+    <% flash.each do |key, value|%>
+      <%= content_tag(:div,value,class:"alert alert-#{key}")%>
+    <% end%>
+  </span>
   </body>
 </html>

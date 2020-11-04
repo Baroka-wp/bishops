@@ -1,12 +1,12 @@
 @import "bootstrap/scss/bootstrap";
 
 .flash{
-  position: absolute;
-    top: 0px;
+  position: fixed;
+    bottom: 0px;
   z-index: 1;
   text-align: center;
   width: 100%;
-  height: auto;
+  height: 50px;
   background: #B1EADA;
 }
 

@@ -3,9 +3,11 @@ class StartupsController < ApplicationController
  before_action :set_startup, only: %i[show edit update destroy]
  before_action :login_check, only: %i[new edit destroy]
  before_action :user_check, only: %i[edit destroy]
+ before_action :startup_check, only: %i[new create]
 
  def index
-   @startups = Startup.all
+   #@startups = Startup.all
+   @startups = Startup.where(["name LIKE ?", "%#{params[:name]}%"])
    @user = User.all
  end
 
@@ -75,4 +77,9 @@ end
      redirect_to new_user_registration_path, notice: 'you are not login, please login or create new accompt'
    end
  end
+
+ def startup_check
+   redirect_to startups_path, notice: 'you have a startup on Bishop' unless current_user.startups.empty?
+ end
+
 end

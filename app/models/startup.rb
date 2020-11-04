@@ -2,7 +2,7 @@ class Startup < ApplicationRecord
   mount_uploader :logo, LogoUploader
   mount_uploader :banner, BannerUploader
 
-  validates :name, presence:true, null:false
+  validates :name, presence:true, uniqueness: true,  null:false
   validates :resume, presence:true, null:false, length:{minimum: 150}
   validates :contact, presence:true, null:false
   validates :adresse, presence:true, null:false

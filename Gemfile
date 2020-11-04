@@ -46,7 +46,7 @@ group :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'launchy'
-
+  gem 'factory_bot_rails'
 end
 
 gem 'letter_opener_web'
