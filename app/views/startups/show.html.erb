@@ -35,7 +35,7 @@
         <hr>
         <p><%= @startup.resume %></p>
         <hr>
-        <div class="embed-responsive embed-responsive-16by9">">
+        <div class="embed-responsive embed-responsive-16by9">
           <%= get_video_iframe( @startup.video) %>
         </div>
         <hr>
@@ -44,8 +44,18 @@
             <%= link_to 'Delete Startup', startup_path(@startup.id), method: :delete, data: { confirm: 'Are you sure?'},class:"btn btn-sm btn-danger" %>
         <% else %>
           <%= link_to "Owener profile", user_path(@startup.user.id), class:"btn btn-sm btn-info" %>
-
         <% end %>
+        <hr>
+        <div class="text-center">
+          <h4 >Give your opinion on this startup</h4>
+          <small>You can participate in the development of this startup's idea by <br>
+            giving advice, remarks, and why not some good ideas to grow.</small>
+            <hr>
+            <%= render partial: 'comments/form', locals: { comment: @comment, startup: @startup } %>
+          </div>
+            <div id="comments_area">
+                <%= render partial: 'comments/index', locals: { comments: @comments, startup: @startup } %>
+            </div>
         </div>
       </div>
   </div>

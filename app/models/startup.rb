@@ -9,7 +9,7 @@ class Startup < ApplicationRecord
   validates :sector_of_business, presence:true, null:false
   has_many :favorites, dependent: :destroy
   has_many :favorite_users, through: :favorites, source: :user
-  
+  has_many :comments, dependent: :destroy
   enum sector_of_business: %i[agriculture it education transport tourism public_service trade]
 
   belongs_to :user
