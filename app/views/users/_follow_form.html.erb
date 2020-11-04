@@ -1,0 +1,10 @@
+<span id="follow_form_<%= user.id %>">
+  <% unless current_user.following?(user) %>
+      <%= form_with(model: current_user.active_relationships.build(followed_id: user.id))  do |f| %>
+        <%= f.hidden_field :followed_id %>
+        <%= f.submit "add to my network",class:"btn btn-sm btn-info addfollow" %>
+      <% end %>
+    <% else %>
+      <small class="badge badge-success"><%= user.name %> belong to your network </small>
+  <% end %>
+</span>

@@ -1,0 +1,7 @@
+<div class="form-inline">
+  <%= form_with(url: users_path, method: :get, local: true) do |f|%>
+    <%= f.text_field :name , class:"form-control mr-sm-2", placeholder: "search startup by it name"%>
+    <%= f.submit'search', class:"btn btn-outline-info my-2 my-sm-0"%><br>
+    <span> <%= link_to "Clear search",users_path %></span>
+  <% end %>
+</div>

@@ -2,14 +2,26 @@
   <div class="row">
     <div class="col-md-12">
       <%= render 'users/wellcome' %>
+      <%= render 'users/search' %>
     </div>
-
-    <% @users.each do |user| %>
-      <div class="col-md-3 ">
-        <%= image_tag (user.avatar_thumbnail), style: 'height:30px;width:30px;'%>
-        <%= link_to "#{user.name}", user %>
-        <%= user.email %>
-      </div>
-    <% end %>
   </div>
-</div>
+  <div class="row">
+        <% @users.each do |user| %>
+          <% unless user == current_user %>
+          <div class="card card-body col-md-3 ">
+            <p>
+              <%= image_tag (user.avatar_thumbnail), style: 'height:30px;width:30px;'%>
+              <%= link_to "#{user.name}", user %>
+              <%= user.email %>
+              <%= user.startups.pluck (:name) %>
+           </p>
+            <%= pluralize(user.followers.count, "follower")%>
+            <% if user_signed_in? %>
+              <%= render 'follow_form', user: user %>
+            <% end %>
+          </div>
+          <% end %>
+        <% end %>
+        <hr>
+    </div>
+  </div>

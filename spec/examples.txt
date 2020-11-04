@@ -1,16 +1,17 @@
-example_id                             | status | run_time        |
--------------------------------------- | ------ | --------------- |
-./spec/system/startup_spec.rb[1:1:1:1] | passed | 1.2 seconds     |
-./spec/system/startup_spec.rb[1:1:2:1] | passed | 0.84277 seconds |
-./spec/system/startup_spec.rb[1:1:3:1] | passed | 0.51803 seconds |
-./spec/system/startup_spec.rb[1:1:3:2] | passed | 1.21 seconds    |
-./spec/system/startup_spec.rb[1:2:1:1] | passed | 2.25 seconds    |
-./spec/system/user_spec.rb[1:1:1:1]    | passed | 0.54001 seconds |
-./spec/system/user_spec.rb[1:1:1:2]    | passed | 1.01 seconds    |
-./spec/system/user_spec.rb[1:1:1:3]    | passed | 0.97895 seconds |
-./spec/system/user_spec.rb[1:1:1:4]    | passed | 1.84 seconds    |
-./spec/system/user_spec.rb[1:1:1:5]    | passed | 0.39681 seconds |
-./spec/system/user_spec.rb[1:2:1:1]    | passed | 0.45324 seconds |
-./spec/system/user_spec.rb[1:2:1:2]    | passed | 0.17965 seconds |
-./spec/system/user_spec.rb[1:2:2:1]    | passed | 0.59723 seconds |
-./spec/system/user_spec.rb[1:2:2:2]    | passed | 0.57561 seconds |
+example_id                                   | status | run_time        |
+-------------------------------------------- | ------ | --------------- |
+./spec/system/relationships_spec.rb[1:1:1:1] | passed | 5.98 seconds    |
+./spec/system/startup_spec.rb[1:1:1:1]       | passed | 1.22 seconds    |
+./spec/system/startup_spec.rb[1:1:2:1]       | passed | 0.84347 seconds |
+./spec/system/startup_spec.rb[1:1:3:1]       | passed | 2.01 seconds    |
+./spec/system/startup_spec.rb[1:1:3:2]       | passed | 1.24 seconds    |
+./spec/system/startup_spec.rb[1:2:1:1]       | passed | 0.70714 seconds |
+./spec/system/user_spec.rb[1:1:1:1]          | passed | 0.57683 seconds |
+./spec/system/user_spec.rb[1:1:1:2]          | passed | 1.07 seconds    |
+./spec/system/user_spec.rb[1:1:1:3]          | passed | 2.46 seconds    |
+./spec/system/user_spec.rb[1:1:1:4]          | passed | 0.52287 seconds |
+./spec/system/user_spec.rb[1:1:1:5]          | passed | 0.39863 seconds |
+./spec/system/user_spec.rb[1:2:1:1]          | passed | 0.49727 seconds |
+./spec/system/user_spec.rb[1:2:1:2]          | passed | 0.21663 seconds |
+./spec/system/user_spec.rb[1:2:2:1]          | passed | 0.57822 seconds |
+./spec/system/user_spec.rb[1:2:2:2]          | passed | 0.55408 seconds |
