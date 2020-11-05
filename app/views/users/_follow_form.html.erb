@@ -5,6 +5,7 @@
         <%= f.submit "add to my network",class:"btn btn-sm btn-info addfollow" %>
       <% end %>
     <% else %>
+      <%= pluralize(user.followers.count, "follower")%>
       <small class="badge badge-success"><%= user.name %> belong to your network </small>
   <% end %>
 </span>

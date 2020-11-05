@@ -4,7 +4,7 @@
       <% if current_user.favorites.pluck(:startup_id).include? @startup.id%>
         <span> <em> -- you're yet promoted --</em></span>
       <% else %>
-      <%= link_to 'PROMOTE', favorites_path(startup_id: @startup.id),  method: :post, class:" addpromote btn btn-sm btn-info"%>
+      <%= link_to 'PROMOTE THIS STARTUP', favorites_path(startup_id: @startup.id),  method: :post, class:" addpromote btn btn-sm btn-danger"%>
        <% end %>
      <% end %>
    <% end %>

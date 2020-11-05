@@ -15,7 +15,6 @@
               <%= user.email %>
               <%= user.startups.pluck (:name) %>
            </p>
-            <%= pluralize(user.followers.count, "follower")%>
             <% if user_signed_in? %>
               <%= render 'follow_form', user: user %>
             <% end %>

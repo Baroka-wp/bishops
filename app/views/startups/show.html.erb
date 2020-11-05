@@ -21,11 +21,10 @@
            <tr>
              <td> Addresse : <strong><%= @startup.adresse %> </strong></td>
           </tr>
-          <tr>
-            <td>
-              <%= render 'favorites'%>
-              <strong><%=@startup.favorites.count %></strong> <img src="/etoile.png" alt="contributeur (s)" width="25" height="25">
-            </td>
+           <tr>
+             <td>
+               <%= link_to "Owener profile", user_path(@startup.user.id), class:"btn btn-outline-info my-2 my-sm-0" %>
+             </td>
            </tr>
       </tbody>
     </table>
@@ -34,6 +33,8 @@
       <p><image controls width="100%" height="auto" src="<%= @startup.banner_thumbnail %>"></image></p>
         <hr>
         <p><%= @startup.resume %></p>
+            <%= render 'favorites'%>
+            <strong><%=@startup.favorites.count %></strong> <img src="/etoile.png" alt="contributeur (s)" width="25" height="25">
         <hr>
         <div class="embed-responsive embed-responsive-16by9">
           <%= get_video_iframe( @startup.video) %>
@@ -42,8 +43,6 @@
         <% if user_signed_in? && current_user.id == @startup.user_id %>
             <%= link_to 'edit Statut', edit_startup_path(@startup.id),class:"btn btn-sm btn-info" %>
             <%= link_to 'Delete Startup', startup_path(@startup.id), method: :delete, data: { confirm: 'Are you sure?'},class:"btn btn-sm btn-danger" %>
-        <% else %>
-          <%= link_to "Owener profile", user_path(@startup.user.id), class:"btn btn-sm btn-info" %>
         <% end %>
         <hr>
         <div class="text-center">

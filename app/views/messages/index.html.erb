@@ -1,0 +1,51 @@
+<div class="container">
+  <% if @over_ten %>
+    <%= link_to 'previous message', '?m=all' %>
+  <% end %>
+  <div class="offset-2 col-sm-8">
+    <% @messages.each do |message| %>
+      <% if message.body.present? %>
+        <div class="item">
+          <div class="content">
+            <% if message.user == current_user %>
+              <div class="header"><strong>You</strong>
+                <small class="badge badge-info"><%= message.message_time %></small></div>
+            <% else %>
+              <div class="header"><strong><%= message.user.name %></strong>
+                <small class="badge badge-info"><%= message.message_time %></small>
+              </div>
+            <% end %>
+            <div class="list">
+              <div class="item">
+                <i class="right triangle icon"></i>
+                <%= message.body %>
+                <% if message.user == current_user %>
+                  (<small><%= message.read ? 'read' : 'no read' %></small>)
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <hr>
+    <% end %>
+  </div>
+  </div>
+  <div class="row">
+    <div class="offset-2 col-sm-8">
+      <small>chat with <%= link_to "@#{@conversation.target_user(current_user).name}", user_path(@conversation.target_user(current_user).id) %></small>
+
+      <%= form_with(model: [@conversation, @message]) do |f| %>
+        <div class="field">
+          <%= f.text_area :body, class: "form-control" %>
+          <br>
+        </div>
+          <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
+        <div>
+          <%= f.submit "send",:class=>"btn btn-outline-info my-2 my-sm-0" %>
+        </div>
+      <% end %>
+      <br>
+        <%= link_to "Back", :back %>
+    </div>
+  </div>

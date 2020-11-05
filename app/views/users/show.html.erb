@@ -16,11 +16,15 @@
           </table>
             <% if user_signed_in? %>
               <% if current_user.id == @user.id  %>
-                <span><%= link_to 'user parmetter', edit_user_registration_path(:id),class:"btn btn-sm btn-warning" %></span>
+                <%= link_to 'Chat room', conversations_path, class:"text-dark"%>
+                <hr>
+                <%= link_to 'user parmetter', edit_user_registration_path(:id),class:"btn btn-sm btn-warning" %>
                 <% unless current_user.startups.any?  %>
                   <span><%= link_to 'add startup', new_startup_path,class:"btn btn-sm btn-info" %></span>
                 <% end %>
-               <% end %>
+               <% else %>
+               <%= link_to "send message", conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post,class:"btn btn-outline-info my-2 my-sm-0" %>
+              <% end %>
              <% end %>
          </div>
          <div class="col-sm-4 col-lg-6">

@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="offset-2 col-sm-7">
+    <table class="table table-bordered table-hover">
+        <tbody>
+        <% @conversations.each do |conversation| %>
+          <tr>
+            <% if conversation.target_user(current_user).present? %>
+            <td><%= image_tag conversation.target_user(current_user).avatar_thumbnail,style: 'height:50px;width:50px;' %>
+              <%= link_to conversation.target_user(current_user).name, conversation_messages_path(conversation)%> </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+  </div>
+  <%= link_to "Back", :back %>
+</div>
