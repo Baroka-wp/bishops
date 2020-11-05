@@ -3,7 +3,7 @@
   name = Faker::Games::Pokemon.name
   email = Faker::Internet.email
   password = "000000"
-  User.create!(avatar: name,
+  User.create!(avatar: avatar,
                name: name,
                email: email,
                password: password,
