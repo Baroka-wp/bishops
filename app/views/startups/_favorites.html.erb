@@ -1,7 +1,7 @@
 <span id="favorites">
   <% if user_signed_in? %>
     <% unless @startup.user_id == current_user.id %>
-      <% if @favorite.present? %>
+      <% if current_user.favorites.pluck(:startup_id).include? @startup.id%>
         <span> <em> -- you're yet promoted --</em></span>
       <% else %>
       <%= link_to 'PROMOTE', favorites_path(startup_id: @startup.id),  method: :post, class:" addpromote btn btn-sm btn-info"%>

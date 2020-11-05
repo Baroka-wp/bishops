@@ -19,6 +19,11 @@
               <% end %>
           </tr>
           <tr>
+            <% unless current_user.startups.any? %>
+            <td><%=link_to "Add stratup", new_startup_path, class:"text-dark"  %></td>
+            <% end %>
+         </tr>
+          <tr>
             <td> Messages room</td>
          </tr>
         <tr>
