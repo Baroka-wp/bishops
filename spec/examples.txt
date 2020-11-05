@@ -1,6 +1,11 @@
 example_id                                   | status | run_time        |
 -------------------------------------------- | ------ | --------------- |
-./spec/system/relationships_spec.rb[1:1:1:1] | passed | 5.98 seconds    |
+./spec/system/comments_spec.rb[1:1:1:1]      | passed | 2.46 seconds    |
+./spec/system/comments_spec.rb[1:1:2:1]      | passed | 0.66893 seconds |
+./spec/system/messages_spec.rb[1:1:1:1]      | passed | 2.33 seconds    |
+./spec/system/messages_spec.rb[1:1:2:1]      | passed | 0.14809 seconds |
+./spec/system/relationships_spec.rb[1:1:1:1] | passed | 7.23 seconds    |
+./spec/system/relationships_spec.rb[1:1:2:1] | passed | 0.58519 seconds |
 ./spec/system/startup_spec.rb[1:1:1:1]       | passed | 1.22 seconds    |
 ./spec/system/startup_spec.rb[1:1:2:1]       | passed | 0.84347 seconds |
 ./spec/system/startup_spec.rb[1:1:3:1]       | passed | 2.01 seconds    |

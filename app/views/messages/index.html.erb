@@ -33,8 +33,6 @@
   </div>
   <div class="row">
     <div class="offset-2 col-sm-8">
-      <small>chat with <%= link_to "@#{@conversation.target_user(current_user).name}", user_path(@conversation.target_user(current_user).id) %></small>
-
       <%= form_with(model: [@conversation, @message]) do |f| %>
         <div class="field">
           <%= f.text_area :body, class: "form-control" %>
