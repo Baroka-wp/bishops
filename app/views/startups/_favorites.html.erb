@@ -2,7 +2,7 @@
   <% if user_signed_in? %>
     <% unless @startup.user_id == current_user.id %>
       <% if current_user.favorites.pluck(:startup_id).include? @startup.id%>
-        <span> <em> -- you're yet promoted --</em></span>
+        <span class="badge badge-success"> you're promoted this startup</span>
       <% else %>
       <%= link_to 'PROMOTE THIS STARTUP', favorites_path(startup_id: @startup.id),  method: :post, class:" addpromote btn btn-sm btn-danger"%>
        <% end %>

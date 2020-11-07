@@ -2,7 +2,9 @@ class FavoritesController < ApplicationController
 
   def create
   favorite = current_user.favorites.create(startup_id: params[:startup_id])
-  flash[:success] = "Merci pour votre contribution à #{favorite.startup.name}"
+  flash[:success] = "Thank you for promoting #{favorite.startup.name}"
+
+  redirect_to startup_path(favorite.startup.id)
  end
 
  def destroy

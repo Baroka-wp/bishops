@@ -14,20 +14,20 @@
           <tr>
             <% current_user.startups.each do |startups| %>
             <td>
-              <%=link_to "My startup", startups, class:"text-dark"  %>
+              <%=link_to "My startup", startups, class:"text"  %>
             </td>
               <% end %>
           </tr>
           <tr>
             <% unless current_user.startups.any? %>
-            <td><%=link_to "Add stratup", new_startup_path, class:"text-dark"  %></td>
+            <td><%=link_to "Add stratup", new_startup_path, class:"text-success"  %></td>
             <% end %>
          </tr>
           <tr>
-            <td> <%= link_to 'Chat room', conversations_path, class:"text-dark"%></td>
+            <td> <%= link_to 'Chat room', conversations_path, class:"text"%></td>
          </tr>
         <tr>
-           <td><%= link_to 'Expand my network', users_path,class:"text-dark" %></td>
+           <td><%= link_to 'Expand my network', users_path,class:"text" %></td>
         </tr>
       </tbody>
     </table>
@@ -36,7 +36,7 @@
   <div class="col-lg-10 col-md-9">
       <% @startups.each do |startup| %>
             <div class="row">
-                <%= image_tag startup.banner_thumbnail, class:"img-fluid", style:'width="100%";'%>
+                <%= image_tag startup.banner_thumbnail, class:"img-fluid"%>
                 <table class="table table-bordered">
                   <tbody>
                     <tr>
@@ -50,7 +50,7 @@
                       <td>
                       <strong><%=startup.favorites.count %></strong> <img src="/etoile.png" alt="contributeur (s)" width="25" height="25">
                       </td>
-                      <td> <%= link_to 'show startup', startup,class:"btn btn-sm btn-info" %></td>
+                      <td> <%= link_to 'show startup', startup,class:"btn btn-sm btn-success" %></td>
                     </tr>
                 </tbody>
               </table>
@@ -58,4 +58,6 @@
       <% end %>
     </div>
   </div>
+  <%= paginate @startups %>
+  <%= render 'startups/footer' %>
 </div>

@@ -10,7 +10,7 @@ class StartupsController < ApplicationController
  def index
 
    @startups = Startup.where(["name LIKE ?", "%#{params[:name]}%"]) if params[:name]
-   @startups = Startup.all.order(name: :ASC)
+   @startups = Startup.all.order(name: :ASC).page(params[:page]).per(10)
    @user = User.all
  end
 

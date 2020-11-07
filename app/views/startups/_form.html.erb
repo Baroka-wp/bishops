@@ -49,7 +49,7 @@
           <small>for your logo to be displayed well, choose an image in png or
             jpg format with a size of 330px *80 px.
             your logo is representing you. Take care of it !</small><br>
-          <%= form.file_field :logo,class:"btn btn-sm btn-info" %>
+          <%= form.file_field :logo,class:"btn btn-sm btn-light" %>
           <br>
         </div>
         <div class="col-md-4">
@@ -57,7 +57,7 @@
           <small>for your banner to be displayed well, choose an image in png or
             jpg format with a size of 1200px *500 px.
             your banner is can détail your activity. Take care of it !</small> <br>
-          <%= form.file_field :banner,class:"btn btn-sm btn-info" %>
+          <%= form.file_field :banner,class:"btn btn-sm btn-light" %>
           <%= form.hidden_field :banner_cache %>
           <br>
         </div>
@@ -72,10 +72,10 @@
       </div>
     <br>
       <div class="actions">
-        <%= form.submit "create startup" ,class:"btn btn-sm btn-info" %>
+        <%= form.submit "create startup" ,class:"btn btn-sm btn-success" %>
       </div>
   <% end %>
   <br>
-  <%= link_to "Back", :back %>
+  <%= link_to "Back", :back ,class:"text-success"%>
 </div>
 <br>

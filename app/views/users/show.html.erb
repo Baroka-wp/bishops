@@ -16,14 +16,14 @@
           </table>
             <% if user_signed_in? %>
               <% if current_user.id == @user.id  %>
-                <%= link_to 'Chat room', conversations_path, class:"text-dark"%>
+                <%= link_to 'My chat room', conversations_path, class:"text"%>
                 <hr>
-                <%= link_to 'user parmetter', edit_user_registration_path(:id),class:"btn btn-sm btn-warning" %>
+                <%= link_to 'edit user params', edit_user_registration_path(:id),class:"btn btn-sm btn-info" %>
                 <% unless current_user.startups.any?  %>
-                  <span><%= link_to 'add startup', new_startup_path,class:"btn btn-sm btn-info" %></span>
+                  <span><%= link_to 'add startup', new_startup_path,class:"btn btn-sm btn-success" %></span>
                 <% end %>
                <% else %>
-               <%= link_to "send message", conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post,class:"btn btn-outline-info my-2 my-sm-0" %>
+               <%= link_to "send message", conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post,class:"btn btn-outline-success my-2 my-sm-0" %>
               <% end %>
              <% end %>
          </div>
@@ -51,18 +51,20 @@
         </div>
         <br>
         <div class="row">
-          <h4><%= @user.name %> network</h4>( <%= pluralize(@user.following.count, "following")%>) <span> <%= link_to 'Expand my network', users_path,class:"text-info" %></span>
-          <table class="table table-bordered table-hover">
+          <h4><%= @user.name %> network</h4>( <%= pluralize(@user.following.count, "following")%>) <span> <%= link_to 'Expand my network', users_path,class:"text-success" %></span>
+          <table class="table table-bordered">
             <tbody>
               <% @user.following.each do |following| %>
               <tr>
                 <td><%= image_tag following.avatar_thumbnail, style: 'height:25px;width:25px;border-raduis:"100px";'%> <%= link_to "#{following.name}", following %></td>
                 <td><%=following.email%></td>
                 <td><%=pluralize(following.followers.count, "follower")%></td>
-                <td>send message</td>
+                <td> <%= link_to "send message", conversations_path(sender_id: current_user.id, recipient_id: following.id), method: :post,class:"btn btn-outline-success my-2 my-sm-0" %></td>
               </tr>
             <% end %>
             </tbody>
           </table>
         </div>
+        <%= render 'startups/footer' %>
+        
       </div>
