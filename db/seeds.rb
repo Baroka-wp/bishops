@@ -1,4 +1,4 @@
-10.times do |n|
+20.times do |n|
   avatar = Faker::Avatar.image
   name = Faker::Games::Pokemon.name
   email = Faker::Internet.email
