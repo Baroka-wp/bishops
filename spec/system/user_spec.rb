@@ -5,7 +5,9 @@ require 'selenium-webdriver'
 require 'capybara'
 
 RSpec.describe 'User registration, login and logout functions', type: :system do
-    user = FactoryBot.create(:user)
+  before do
+    @user = FactoryBot.create(:user)
+  end
   describe 'Testing User Registration' do
     context 'If the user has no data and is not logged in' do
       it 'Testing New User Registration' do
@@ -70,8 +72,8 @@ end
     context 'If the user has no data and is not logged in' do
       it 'Testing Session Logins' do
         visit new_user_session_path
-        fill_in 'user[email]', with: user.email
-        fill_in 'user[password]', with: user.password
+        fill_in 'user[email]', with: @user.email
+        fill_in 'user[password]', with: @user.password
         click_button 'Log in'
         expect(page).to have_content 'Signed in successfully.'
       end
@@ -84,8 +86,8 @@ end
     context 'If the user is logged in' do
       it 'Testing Session Logouts' do
         visit new_user_session_path
-        fill_in 'user[email]', with: user.email
-        fill_in 'user[password]', with: user.password
+        fill_in 'user[email]', with: @user.email
+        fill_in 'user[password]', with: @user.password
         click_button 'Log in'
         #click_link 'logout'
         click_link 'logout'
@@ -94,8 +96,8 @@ end
       end
       it 'When user are logged can not go to user registration screen' do
         visit new_user_session_path
-        fill_in 'user[email]', with: user.email
-        fill_in 'user[password]', with: user.password
+        fill_in 'user[email]', with: @user.email
+        fill_in 'user[password]', with: @user.password
         click_button 'Log in'
         visit new_user_session_path
         expect(current_path).to eq root_path

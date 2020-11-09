@@ -5,17 +5,19 @@ require 'selenium-webdriver'
 require 'capybara'
 
 RSpec.describe 'Comments Management Function', type: :system do
-  user = FactoryBot.create(:user)
-  user2 = FactoryBot.create(:second_user)
-  FactoryBot.create(:startup, user: user)
+  before do
+    @user = FactoryBot.create(:user)
+    @user2 = FactoryBot.create(:second_user)
+    FactoryBot.create(:startup, user: @user)
+  end
 
   describe 'Comments manage' do
     context 'When user login' do
       it 'become followers.' do
 
         visit new_user_session_path
-        fill_in 'user[email]', with: user.email
-        fill_in 'user[password]', with: user.password
+        fill_in 'user[email]', with: @user.email
+        fill_in 'user[password]', with: @user.password
         click_button 'Log in'
         visit root_path
         click_on 'show startup'

@@ -5,15 +5,17 @@ require 'selenium-webdriver'
 require 'capybara'
 
 RSpec.describe 'startup Management Function', type: :system do
-  user = FactoryBot.create(:user)
-  user2 = FactoryBot.create(:second_user)
+  before do
+    @user = FactoryBot.create(:user)
+    @user2 = FactoryBot.create(:second_user)
+  end
 
   describe 'startup registration screen' do
     context 'When you fill in the required fields and press the create button' do
       it 'Data is stored.' do
         visit new_user_session_path
-        fill_in 'user[email]', with: user.email
-        fill_in 'user[password]', with: user.password
+        fill_in 'user[email]', with: @user.email
+        fill_in 'user[password]', with: @user.password
         click_button 'Log in'
         visit new_startup_path
         fill_in 'startup[name]', with: "startup2"
@@ -38,8 +40,8 @@ RSpec.describe 'startup Management Function', type: :system do
     context 'when user fill wrong field' do
       it 'can not create startup without name, resume, adresse, sector_of_business, contact' do
         visit new_user_session_path
-        fill_in 'user[email]', with: user.email
-        fill_in 'user[password]', with: user.password
+        fill_in 'user[email]', with: @user.email
+        fill_in 'user[password]', with: @user.password
         click_button 'Log in'
         visit new_startup_path
         fill_in 'startup[trade_registre]', with:'12003654879'
@@ -54,19 +56,19 @@ RSpec.describe 'startup Management Function', type: :system do
     end
     context 'when user had startup' do
       it 'can not create anather startup' do
-        FactoryBot.create(:startup, user: user)
+        FactoryBot.create(:startup, user: @user)
         visit new_user_session_path
-        fill_in 'user[email]', with: user.email
-        fill_in 'user[password]', with: user.password
+        fill_in 'user[email]', with: @user.email
+        fill_in 'user[password]', with: @user.password
         click_button 'Log in'
         visit new_startup_path
         expect { raise StandardError, 'you have a startup on Bishop'}.to raise_error('you have a startup on Bishop')
       end
       it 'can not create startup with same name' do
-        FactoryBot.create(:startup, user: user)
+        FactoryBot.create(:startup, user: @user)
         visit new_user_session_path
-        fill_in 'user[email]', with: user2.email
-        fill_in 'user[password]', with: user2.password
+        fill_in 'user[email]', with: @user2.email
+        fill_in 'user[password]', with: @user2.password
         click_button 'Log in'
         visit new_startup_path
         fill_in 'startup[name]', with: "startup1"
@@ -92,10 +94,10 @@ RSpec.describe 'startup Management Function', type: :system do
     describe 'search function' do
       context 'If user search by name' do
         it 'You can search by name.' do
-          FactoryBot.create(:startup, user: user)
+          FactoryBot.create(:startup, user: @user)
           visit new_user_session_path
-          fill_in 'user[email]', with: user.email
-          fill_in 'user[password]', with: user.password
+          fill_in 'user[email]', with: @user.email
+          fill_in 'user[password]', with: @user.password
           click_button 'Log in'
           fill_in "name", with: 'sta'
           click_button 'search'
