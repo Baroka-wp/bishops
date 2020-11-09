@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable,
-         :omniauthable, omniauth_providers: %i(google)
+         :omniauthable, omniauth_providers: %i[google facebook]
    mount_uploader :avatar, AvatarUploader
 
    validates :name , presence: true , uniqueness: true
@@ -37,6 +37,13 @@ class User < ApplicationRecord
    user.save
    user
  end
+ def self.find_for_facebook(auth)
+   where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+     user.email = auth.info.email
+     user.password = Devise.friendly_token[0, 20]
+     user.name = auth.info.name # assuming the user model has a name
+   end
+end
 
  def follow!(other_user)
     active_relationships.create!(followed_id: other_user.id)
