@@ -14,7 +14,6 @@ module Bishop
     #config.action_mailer.default_url_options = { host: 'localhost:3000', protocol: 'http' }
 
     host = 'http://bishop-samurai.herokuapp.com/'
-    host = 'https://bishop-samurai.herokuapp.com/' # replace with your own url
     config.action_mailer.default_url_options = { host: 'http://bishop-samurai.herokuapp.com/', protocol: 'http' }
     # SMTP settings for gmail
     config.action_mailer.smtp_settings = {
