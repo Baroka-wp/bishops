@@ -22,7 +22,7 @@ bishop is a directory of startups and self-entrepreneurs in Benin. The applicati
 - [ ] function to following another user (partner)
 - [ ] message function between partners
 - [ ] Profile rating system
-- [ ] Video loading (for startup présentation)
+- [ ] Video uploading (for startup présentation)
 * ## Catalog design,Table_Definition,Screen transition diagram,,Wire frame
 
 https://docs.google.com/spreadsheets/d/1U9MVG2Ne2icgs9-ATP0gTDe1dtUEVoskCr08xy1ChjE/edit?usp=sharing
