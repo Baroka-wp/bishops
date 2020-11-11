@@ -26,7 +26,10 @@
         </div>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item">
-            <%= link_to "Home",root_path ,class:"text" %>
+            <%= link_to "Home",root_path ,class:"nav-link text-info" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "All self contractors",users_path ,class:"nav-link text-info" %>
           </li>
         </ul>
         <%= link_to "logout", destroy_user_session_path, method: :delete,class:" btn btn-outline-info my-2 my-sm-0" %>

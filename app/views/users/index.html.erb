@@ -1,9 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <%= render 'users/wellcome' %>
       <%= render 'users/search' %>
+        <hr>
     </div>
+
   </div>
   <div class="row">
         <% @users.each do |user| %>
@@ -11,9 +12,9 @@
           <div class="card card-body col-md-3 ">
             <p>
               <%= image_tag (user.avatar_thumbnail), style: 'height:30px;width:30px;'%>
-              <%= link_to "#{user.name}", user %>
-              <%= user.email %>
-              <%= user.startups.pluck (:name) %>
+              <%= link_to "#{user.name}", user %><br>
+              <strong>email: </strong> <%= user.email %><br>
+              <%= link_to "#{user.name}'s summary", user %><br>
            </p>
             <% if user_signed_in? %>
               <%= render 'follow_form', user: user %>
