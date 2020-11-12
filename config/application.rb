@@ -9,7 +9,8 @@ module Bishop
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
     config.secret_key_base = 'fa39a99ce1e07233dd84b0cc87476bd3a39cd745e12caafc1518c197d15c31f3c7d5aa29c53b9f9ee4d01d371da50b2373db6485f238d9364162867aae2f68be'
-
+    config.time_zone = 'Asia/Tokyo'
+    config.i18n.default_locale = :en
     #host = 'localhost:3000' # replace with your own url
     #config.action_mailer.default_url_options = { host: 'localhost:3000', protocol: 'http' }
 

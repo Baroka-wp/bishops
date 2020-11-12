@@ -25,7 +25,7 @@ if params[:name]
    @startup = current_user.startups.build(startup_params)
    if @startup.save
      StartupMailer.startup_mail(@startup).deliver
-     flash[:success] = 'startup successfully create'
+     flash[:success] = I18n.t('startup.controller.create_startup')
      redirect_to user_path(current_user.id)
    else
      render :new
@@ -42,7 +42,7 @@ end
 
  def update
    if @startup.update(startup_params)
-     flash[:success] = 'startup successfully update !'
+     flash[:success] = I18n.t('startup.controller.update')
      redirect_to startup_path(@startup.id)
    else
      render :edit
@@ -51,7 +51,7 @@ end
 
  def destroy
    @startup.destroy
-   flash[:success] = 'startup successfully destroy !'
+   flash[:success] = I18n.t('startup.controller.destroy')
    redirect_to startups_path
  end
 
@@ -74,18 +74,18 @@ end
  end
 
  def user_check
-   redirect_to startups_path, notice: 'access deny' unless current_user.id == @startup.user_id
+   redirect_to startups_path,  flash[:success] = I18n.t('startup.controller.user_check_error') unless current_user.id == @startup.user_id
  end
 
 
  def login_check
    unless user_signed_in?
-     redirect_to new_user_registration_path, notice: 'you are not login, please login or create new accompt'
+     redirect_to new_user_registration_path, flash[:success] = I18n.t('startup.controller.login_check_error')
    end
  end
 
  def startup_check
-   redirect_to startups_path, notice: 'you have a startup on Bishop' unless current_user.startups.empty?
+   redirect_to startups_path,  flash[:success] = I18n.t('startup.controller.startup_check_error') unless current_user.startups.empty?
  end
 
 end

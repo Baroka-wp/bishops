@@ -35,7 +35,7 @@ class Startup < ApplicationRecord
     if video.present?
       video
     else
-      'https://www.youtube.com/watch?v=NGi5ontIT3w'
+      "https://www.youtube.com/watch?v=NGi5ontIT3w"
     end
   end
 end
