@@ -405,3 +405,9 @@ créer les relations de tables
           <% end %>
       <% end %>
  > <% end %>
+        
+        
+  ##RSPEC
+  installer les gemfile
+  
+  $ bundle exec spring binstub rspec
