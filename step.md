@@ -405,3 +405,39 @@ créer les relations de tables
           <% end %>
       <% end %>
  > <% end %>
+        
+        
+  ##RSPEC
+  installer les gemfile
+  
+  $ bundle exec spring binstub rspec
+
+
+-générer les fichier rspec
+rails generate rspec: install
+
+dans .rspec
+ajouter  : 
+--format documentation
+
+
+dans config/application.rb
+
+omit
+  class Application < Rails::Application
+omit
+    config.generators do |g|
+      g.test_framework :rspec,
+        fixtures: true,
+        view_specs: false,
+        helper_specs: false,
+        routing_specs: false,
+        controller_specs: false,
+        request_specs: false
+      g.fixture_replacement :factory_bot, dir: "spec/factories"
+    end
+  end
+end
+
+**bin/rspec**
+pour vérifier les tests
